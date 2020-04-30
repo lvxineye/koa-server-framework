@@ -1,0 +1,44 @@
+{
+  "name": "koa2-server-framework",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node bin/www nodemon index.js --exec babel-node",
+    "dev": "cross-env NODE_ENV=dev PORT=3001 ./node_modules/.bin/nodemon bin/www nodemon index.js --exec babel-node",
+    "beta": "cross-env NODE_ENV=beta PORT=3001 ./node_modules/.bin/nodemon bin/www nodemon index.js --exec babel-node",
+    "prd": "cross-env NODE_ENV=production PORT=3001 pm2 start bin/www nodemon index.js --exec babel-node",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "ejs": "~2.3.3",
+    "eureka-client": "^1.1.0",
+    "ioredis": "^4.16.3",
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.0",
+    "koa-onerror": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.2.0",
+    "koa2-request": "^1.0.4",
+    "mysql2": "^2.1.0",
+    "redis": "^2.8.0",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.8.0",
+    "nodemon": "^1.19.1",
+    "pre-commit": "^1.2.2"
+  }
+}

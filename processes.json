@@ -1,0 +1,28 @@
+{
+ "apps": [
+  {
+   "name": "health-project-house-nodejs-server",
+   "script": "bin/www",
+   "env": { "NODE_ENV": "dev", "PORT": 7501 },
+   "env_dev": { "NODE_ENV": "dev", "PORT": 7501 },
+   "env_beta": { "NODE_ENV": "beta", "PORT": 7501 },
+   "env_production": { "NODE_ENV": "production", "PORT": 7501 },
+   "log_date_format": "YYYY-MM-DD HH:mm:SS",
+   "log_file": "logs/node.log",
+   "error_file": "logs/node-err.log",
+   "out_file": "logs/node-out.log",
+   "pid_file": "pids/node.pid",
+   "instances": 1,
+   "min_uptime": "200s",
+   "max_restarts": 30,
+   "max_memory_restart": "1024M",
+   "cron_restart": "1 0 * * *",
+   "watch": false,
+   "merge_logs": true,
+   "exec_interpreter": "node",
+   "exec_mode": "cluster_mode",
+   "autorestart": true,
+   "vizion": false
+  }
+ ]
+}
