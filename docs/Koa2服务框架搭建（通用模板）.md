@@ -51,6 +51,7 @@ JavaScript解析器只是JavaScript代码运行的一种环境，浏览器是Jav
 多个中间件通过app.use(middleWare)加载后，形成一个“中间件栈”，执行顺序以中间件里的next函数调用为界限：
 
 ```javascript
+// app.js
 const koa = require('koa');
 const app = new koa();
 
@@ -123,6 +124,79 @@ one next之后
 
 ![洋葱模型](https://github.com/lvxineye/koa-server-framework/blob/master/docs/koa%E6%B4%8B%E8%91%B1%E6%A8%A1%E5%BC%8F.jpg)
 
+![洋葱模型](./koa洋葱模式.jpg)
+
+## 项目结构
+
+![项目结构](./项目目录.jpg)
+
+## 我们的app.js
+
+```javascript
+// app.js
+import Koa from 'koa'
+import koaRouter from 'koa-router'
+import views from 'koa-views'
+import json from 'koa-json'
+import onerror from 'koa-onerror'
+import bodyparser from 'koa-bodyparser'
+import logger from 'koa-logger'
+import KoaBody from 'koa-body'
+import path from 'path'
+import './eureka'
+import mainRoutes from './routes';
+import errorRoutes from './routes/error-routes'
+import urlFilter from './middlewares/urlFilter'
+import response from './middlewares/response'
+import catchError from './middlewares/catchError'
+
+// const util = './utils/util'
+const app = new Koa()
+const router = koaRouter()
+
+// error handler
+onerror(app)
+
+// middlewares
+app.use(bodyparser({
+  enableTypes: ['json', 'form', 'text']
+}))
+app.use(json())
+app.use(logger())
+app.use(require('koa-static')(__dirname + '/public'))
+
+app.use(views(__dirname + '/views', {
+  extension: 'ejs'
+}))
+
+// logger
+app.use(async (ctx, next) => {
+  const start = new Date()
+  console.log('start logger')
+  await next()
+  const ms = new Date() - start
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+})
+
+app.use(require('koa-static')(__dirname + '/public'))
+app.use(catchError)
+// 响应请求处理
+app.use(response)
+
+// 登录token验证
+app.use(urlFilter('/auth/'))
+app.use(mainRoutes.routes())
+app.use(mainRoutes.allowedMethods())
+app.use(errorRoutes())
+
+// error-handling
+app.on('error', (err, ctx) => {
+  console.error('server error', err, ctx)
+})
+
+module.exports = app
+
+```
 
 
 ## 解决问题

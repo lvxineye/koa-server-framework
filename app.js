@@ -1,3 +1,4 @@
+// app.js
 import Koa from 'koa'
 import koaRouter from 'koa-router'
 import views from 'koa-views'
