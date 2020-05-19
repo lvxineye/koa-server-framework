@@ -1,6 +1,6 @@
 console.log('process.env.NODE_ENV=' + process.env.NODE_ENV, 'process.env.PORT=' + process.env.PORT)
 
-const port = 3001
+const port = process.env.PORT
 module.exports = {
   dev: {
     username: 'dtea_app', //用户名
