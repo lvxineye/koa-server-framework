@@ -1,7 +1,7 @@
 {
  "apps": [
   {
-   "name": "wechat-customer-service-nodejs-server",
+   "name": "server-name",
    "script": "bin/www",
    "env": { "NODE_ENV": "dev", "PORT": 7501 },
    "env_dev": { "NODE_ENV": "dev", "PORT": 7501 },
