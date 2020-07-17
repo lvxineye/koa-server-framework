@@ -1,5 +1,5 @@
 // ./middlewares/catchError.js
-import exception from '../errors/ApiError'
+const exception = require('../errors/ApiError')
 
 const catchError = async (ctx, next) => {
   try {

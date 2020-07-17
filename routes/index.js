@@ -1,12 +1,12 @@
 // ./routes/index.js
-import koaRouter from 'koa-router'
-import User from './user'
-import Order from './order'
-import Auth from './auth'
+const koaRouter = require('koa-router')
+const User = require('./user')
+const Order = require('./order')
+const Auth = require('./auth')
 
 const router = koaRouter()
 
-router.prefix('/api')
+router.prefix('/server-name/api')
   .use('/user', User.routes())
   .use('/order', Order.routes())
   .use('/auth', Auth.routes())

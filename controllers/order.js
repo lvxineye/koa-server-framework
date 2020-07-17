@@ -1,4 +1,4 @@
-import OrderModel from '../models/order'
+const OrderModel = require('../models/order')
 
 class OrderController {
   // 测试列表

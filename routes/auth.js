@@ -1,4 +1,4 @@
-import koaRouter from 'koa-router'
+const koaRouter = require('koa-router')
 
 
 const router = new koaRouter()

@@ -1,6 +1,5 @@
-import koaRouter from 'koa-router'
-import Order from '../controllers/order.js'
-
+const koaRouter = require('koa-router')
+const Order = require('../controllers/order.js')
 
 const router = new koaRouter()
 

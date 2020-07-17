@@ -1,12 +1,12 @@
 // ./middlewares/uriFilter.js
 
 // const VerifyToken = require('./tokenVerify')
-import ApiError from '../errors/ApiError'
-import ApiErrorNames from '../errors/ApiErrorNames'
-import {
+const ApiError = require('../errors/ApiError')
+const ApiErrorNames = require('../errors/ApiErrorNames')
+const {
   newRedis,
   RedisGet
-} from '../config/ioredis'
+} = require('../config/ioredis')
 
 const urlFilter = (pattern) => {
   return async (ctx, next) => {
@@ -21,9 +21,11 @@ const urlFilter = (pattern) => {
         const uuaToken = `uua-shiro-cache:shiro-activeSessionCache:${token}`
         var checkeToken = await RedisGet(uuaToken)
         if (checkeToken == null) {
+          console.log('token is null')
           throw new ApiError(ApiErrorNames.USER_LOGIN_EXPIRED);
         }
       } else {
+        console.log('user un login')
         throw new ApiError(ApiErrorNames.USER_UN_LOGIN)
       }
     }

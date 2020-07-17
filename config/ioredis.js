@@ -1,6 +1,5 @@
 // 192.168.11.217     6379   nchhdtea
-
-import Redis from 'ioredis'
+const Redis = require('ioredis')
 
 const redis = {
   port: 6379, // Redis port

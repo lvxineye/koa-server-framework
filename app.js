@@ -1,19 +1,19 @@
 // app.js
-import Koa from 'koa'
-import koaRouter from 'koa-router'
-import views from 'koa-views'
-import json from 'koa-json'
-import onerror from 'koa-onerror'
-import bodyparser from 'koa-bodyparser'
-import logger from 'koa-logger'
-import KoaBody from 'koa-body'
-import path from 'path'
-import './eureka'
-import mainRoutes from './routes';
-import errorRoutes from './routes/error-routes'
-import urlFilter from './middlewares/urlFilter'
-import response from './middlewares/response'
-import catchError from './middlewares/catchError'
+const Koa = require('koa')
+const koaRouter = require('koa-router')
+const views = require('koa-views')
+const json = require('koa-json')
+const onerror = require('koa-onerror')
+const bodyparser = require('koa-bodyparser')
+const logger = require('koa-logger')
+const KoaBody = require('koa-body')
+const path = require('path')
+const mainRoutes = require('./routes')
+const errorRoutes = require('./routes/error-routes')
+const urlFilter = require('./middlewares/urlFilter')
+const response = require('./middlewares/response')
+const catchError = require('./middlewares/CatchError')
+require('./eureka')
 
 // const util = './utils/util'
 const app = new Koa()

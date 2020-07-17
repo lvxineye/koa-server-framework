@@ -1,6 +1,7 @@
-import log4js from 'log4js'
-import fs from 'fs'
-import logConfig from '../config/log/main' // 加载配置文件
+const log4js = require('log4js')
+const fs = require('fs')
+
+const logConfig = require('../config/log/main') // 加载配置文件
 
 log4js.configure(logConfig) // 将配置添加到log4js中
 

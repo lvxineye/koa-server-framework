@@ -1,4 +1,4 @@
-import ApiErrorNames from './ApiErrorNames'
+const ApiErrorNames = require('./ApiErrorNames')
 
 // 自定义API异常
 class ApiError extends Error {

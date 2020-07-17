@@ -13,7 +13,7 @@
  * @ 调用ctx.error()   响应错误
  * @ 调用ctx.success()  响应成功
  */
-import ApiError from '../errors/ApiError'
+const ApiError = require('../errors/ApiError')
 
 module.exports = async (ctx, next) => {
   try {

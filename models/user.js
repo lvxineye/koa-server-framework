@@ -1,3 +1,6 @@
+
+const ApiError = require('../errors/ApiError')
+const ApiErrorNames = require('../errors/ApiErrorNames')
 const db = require('../config/db.js')
 const userModel = '../schema/user.js'
 
@@ -16,6 +19,26 @@ class UserModel {
       })
       return list
     })
+  }
+
+  static async getById(userId) {
+    if (-1 == userId) {
+      throw new ApiError(ApiErrorNames.USER_NOT_EXIST)
+    } else {
+      console.log('get user info by id:', userId)
+      return {
+        'userId':userId,
+        'userName': '姓名'
+      }
+    }
+  }
+
+  static async getByPhoneNumber(phoneNumber) {
+    return {
+      'userId': 100010,
+      'userName': '张三',
+      'phoneNumber': phoneNumber
+    }
   }
 }
 

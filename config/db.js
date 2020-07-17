@@ -1,6 +1,6 @@
 // ./config/db.js
-import Sequelize from 'sequelize'
-import database from '../env'
+const Sequelize = require('sequelize')
+let database = require('../env')
 
 console.log('process.env.NODE_ENV=db---' + process.env.NODE_ENV)
 console.log(database[process.env.NODE_ENV], '******database')

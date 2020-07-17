@@ -2,7 +2,7 @@ var Eureka = require('eureka-client').Eureka
 
 const ip = 'localhost' //getIp(); //获取本地ip
 
-let serviceName = 'healthy-management-nodejs-server' // eureka 服务注册的服务名
+let serviceName = 'server-name' // eureka 服务注册的服务名
 
 let database = require('./env')
 let configInfo = database[process.env.NODE_ENV]

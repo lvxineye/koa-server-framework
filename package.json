@@ -1,12 +1,12 @@
 {
-  "name": "koa2-server-framework",
+  "name": "server-name",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node bin/www nodemon index.js --exec babel-node",
-    "dev": "cross-env NODE_ENV=dev PORT=3002 ./node_modules/.bin/nodemon bin/www nodemon index.js --exec babel-node",
-    "beta": "cross-env NODE_ENV=beta PORT=3001 ./node_modules/.bin/nodemon bin/www nodemon index.js --exec babel-node",
-    "prd": "cross-env NODE_ENV=production PORT=3001 pm2 start bin/www nodemon index.js --exec babel-node",
+    "start": "node bin/www",
+    "dev": "cross-env NODE_ENV=dev PORT=3002 ./node_modules/.bin/nodemon bin/www",
+    "beta": "cross-env NODE_ENV=beta PORT=3001 ./node_modules/.bin/nodemon bin/www",
+    "prd": "cross-env NODE_ENV=production PORT=3001 pm2 start bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js"
   },
@@ -31,10 +31,6 @@
     "sequelize": "^5.21.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/register": "^7.9.0",
     "babel-eslint": "^10.1.0",
     "cross-env": "^6.0.3",
     "eslint": "^6.8.0",
